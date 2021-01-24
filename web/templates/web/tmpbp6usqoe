@@ -1,0 +1,905 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>Essentials - SaaS Landing Page Template</title>
+    
+    <!-- Loading Bootstrap -->
+    <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Loading Template CSS -->
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'web/css/style-magnific-popup.css' %}" rel="stylesheet">
+
+    <!-- Awsome Fonts -->
+    <link rel="stylesheet" href="{% static 'web/css/all.min.css' %}">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700" rel="stylesheet">
+
+    <!-- Font Favicon -->
+    <link rel="shortcut icon" href="{% static 'web/images/favicon.ico' %}">
+    
+</head>
+
+<body>
+{% for header in headers %}
+    <!--begin header -->
+    <header class="header">
+
+        <!--begin navbar-fixed-top -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            
+            <!--begin container -->
+            <div class="container">
+
+                <!--begin navbar -->
+                <nav class="navbar navbar-expand-lg">
+
+                    <!--begin logo -->
+                    <a class="navbar-brand" href="#">{{header.brand}}</a>
+                    <!--end logo -->
+
+                    <!--begin navbar-toggler -->
+                    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+                    </button>
+                    <!--end navbar-toggler -->
+
+                    <!--begin navbar-collapse -->
+                    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                        
+                        <!--begin navbar-nav -->
+                        <ul class="navbar-nav ml-auto">
+                {% for menu in menus %}
+                            <li><a href="{{menu.link}}">{{menu.title}}</a></li>
+                {% endfor %}
+                           
+
+                            <li class="discover-link"><a href="{{header.link}}" class="external discover-btn">{{header.text}}</a></li>
+                 
+
+                        </ul>
+                        <!--end navbar-nav -->
+
+                    </div>
+                    <!--end navbar-collapse -->
+
+                </nav>
+                <!--end navbar -->
+
+            </div>
+    		<!--end container -->
+            
+        </nav>
+    	<!--end navbar-fixed-top -->
+        
+    </header>
+    <!--end header -->
+{% left_image in left_images %}
+    <!--begin home section -->
+    <section class="home-section" id="home">
+
+		<!--begin container -->
+		<div class="container">
+
+	        <!--begin row -->
+	        <div class="row">
+	         
+	            <!--begin col-md-6-->
+	            <div class="col-md-6 padding-top-80">
+	            {% for menu in menus %}
+                {% if menu.title == 'Home' %}
+	          		<h1>{{menu.heading}}</h1>
+
+	          		<p>{{menu.subheading}}</p>
+              {% endif %}
+               {% endfor %}
+	        		<a href="#" class="btn-blue scrool">{{left_image.text}}</a>
+             
+	            </div>
+	            <!--end col-md-6-->
+	       
+				<!--begin col-md-6-->
+	            <div class="col-md-6">
+
+	          		<img src="{{left_image.img.url}}" class="hero-image width-100" alt="pic">
+
+	            </div>
+	            <!--end col-md-6-->
+
+	        </div>
+	        <!--end row -->
+
+		</div>
+		<!--end container -->
+
+    </section>
+    <!--end home section -->
+
+    <!--begin section-grey -->
+    <section class="section-grey section-top-border" id="about">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+                {% for menu in menus %}
+                  {% if menu.title == 'About' %}
+                    <h2 class="section-title">{{menu.heading}}</h2>
+
+                    <p class="section-subtitle">{{menu.subheading}}</p>
+                     {% endif %}
+               {% endfor %}
+                </div>
+                <!--end col-md-12 -->
+
+                <!--begin col-md-4 -->
+                {% for service in services %}
+                <div class="col-md-4">
+
+                    <div class="main-services">
+
+                        <img src="{{service.img.url}}" class="width-100" alt="pic">
+
+                        <h3>{{service.title}}</h3>
+
+                        <p>{{service.data}}</p>
+
+                        <a href="{{service.link}}" class="btn-blue-line small scrool">{{service.text}}</a>
+                        
+                    </div>
+
+                </div>
+                
+           {% endfor %}
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end section-grey -->
+
+    <!--begin section-white -->
+    <section class="section-white section-top-border">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-6 -->
+                <div class="col-md-6 padding-top-30">
+               {% for feature in features %}
+                    <!--begin features-second -->
+                    <div class="features-second">
+                        
+                        <div class="dropcaps-circle">
+                            <i class="{{feature.icon}}"></i>
+                        </div>
+
+                        <h4 class="margin-bottom-5">{{feature.heading}}</h4>
+
+                        <p>{{feature.data}}</p>
+
+                    </div>
+                    {% endfor %}
+                    <!--end features-second-->
+
+                   
+
+                </div>
+                <!--end col-md-6-->
+           
+                <!--begin col-md-6-->
+                <div class="col-md-6 wow slideInRight" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: slideInRight;">
+
+                    <img src="{{left_image.image.url}}" class="width-100 box-shadow" alt="pic">
+
+                </div>
+                <!--end col-md-6-->
+
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end section-white -->
+
+    <!--begin section-blue -->
+    <section class="section-blue">
+
+        <!--begin container -->
+        <div class="container">
+            <div class="row">
+{% for feature_highlight in feature_highlights %}
+            <!--begin row -->
+
+                <!--begin col-md-6-->
+                <div class="col-md-6">
+                    
+                    <!--begin video-popup-wrapper-->
+                    <div class="video-popup-wrapper">
+
+                        <!--begin popup-gallery-->
+                        <div class="popup-gallery">
+                            
+                            <img src="{{feature_highlight.img.url}}" class="width-100 video-popup-image" alt="pic">
+
+                            <a class="popup4 video-play-icon" href="https://www.youtube.com/watch?v=FPfQMVf4vwQ">
+                                <i class="fas fa-play"></i>
+                            </a>
+
+                        </div>
+                        <!--end popup-gallery-->
+
+                    </div>
+                    <!--end video-popup-wrapper-->
+
+                </div>
+                <!--end col-md-6-->
+
+                <!--begin col-md-6-->
+                <div class="col-md-6 padding-top-30 padding-left-20">
+
+                    <h2 class="white-text">{{feature_highlight.heading}}</h2>
+
+                    <p class="white-text">{{feature_highlight.data}}</p>
+
+                    
+                </div>
+                <!--end col-md-6-->
+          
+            </div>
+            <!--end row -->
+              {% endfor %}
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end section-blue -->
+
+    <!--begin pricing section -->
+    <section class="section-grey" id="pricing">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center padding-bottom-40">
+             {% for menu in menus %}
+                  {% if menu.title == 'Pricing' %}
+                    <h2 class="section-title">{{menu.heading}}</h2>
+
+                    <p class="section-subtitle">{{menu.subheading}}</p>
+                     {% endif %}
+               {% endfor %}
+                </div>
+                <!--end col-md-12 -->
+{% for pricing in pricings %}
+                <!--begin col-md-4-->
+                <div class="col-md-4">
+
+                    <div class="price-box">
+
+                        <ul class="pricing-list">
+
+                            <li class="price-title">{{pricing.title}}</li>
+
+                            <li class="price-value">${{pricing.price}}</li>
+
+                            <li class="price-subtitle">{{pricing.duration}}</li>
+
+                            <li class="price-text"><i class="fas fa-check blue"></i>{{pricing.texta}}</li>
+                            <li class="price-text"><i class="fas fa-check blue"></i>{{pricing.textb}}</li>
+                            <li class="price-tag-line"><a href="{{pricing.link}}">{{pricing.text}}</a></li>
+
+                        </ul>
+      </div>
+
+                </div>
+                <!--end col-md-4 -->
+{% endfor %}
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end pricing section -->
+
+    <!--begin section-white -->
+    <section class="section-white no-padding-bottom section-top-border">
+
+		<!--begin container -->
+		<div class="container">
+
+	        <!--begin row -->
+	        <div class="row">
+{% for single_testimonial in single_testimonial %}
+                <!--begin col-md-6-->
+                <div class="col-md-6 padding-top-120 text-center">
+
+                    <p class="testimonial-single">{{single_testimonial.quote}}</p>
+
+                    <h5 class="margin-bottom-5">{{single_testimonial.name}}</h5>
+
+                    <p class="blue">{{single_testimonial.profile}}</p>
+
+                </div>
+                <!--end col-md-6-->
+           
+                <!--begin col-md-6-->
+                <div class="col-md-6">
+
+                    <img src="{{single_testimonial.img.url}}" class="width-100" alt="pic">
+
+                </div>
+                <!--end col-md-6-->
+{% endfor %}
+	        </div>
+	        <!--end row -->
+			
+		</div>
+		<!--end container -->
+
+    </section>
+    <!--end section-white -->
+
+    <!--begin partners section -->
+    <section class="section-grey partners-paddings section-top-border section-bottom-border">
+        
+        <!--begin container -->
+        <div class="container">
+            
+            <!--begin row -->
+            <div class="row">
+                
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+
+                    <h3 class="section-title">{{left_image.heading}}</h3>
+
+                </div>
+                <!--end col-md-12 -->
+
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+
+                    <!--begin partners-mentions -->
+                    <ul class="partners-mentions">
+{% for award in awards %}
+                        <li><img src="{{award.img.url}}" alt="CSS Awards"></li>
+{% endfor %}
+                    </ul>
+                    <!--end partners-mentions -->
+
+                </div>
+                <!--end col-md-12 -->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end partners section -->
+
+    <!--begin faq section -->
+	<section class="section-white small-padding-bottom">
+        
+        <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+            
+                <!--begin col-md-6-->
+                <div class="col-md-6 margin-top-10">
+
+                    <img src="{{left_image.imagea.url}}" class="width-100 box-shadow" alt="picture">
+
+                </div>
+                <!--end col-sm-6-->
+                
+                <!--begin col-md-6-->
+                <div class="col-md-6 margin-top-20">
+
+                	<h3>{{left_image.data}}</h3>
+
+                    <!--begin accordion -->
+                    <div class="accordion" id="accordionFAQ">
+
+                        
+
+                        <!--begin card -->
+                        <div class="card">
+{% for question in questions %}
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  {{question.heading}}
+                                </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionFAQ">
+                                <div class="card-body">
+                                {{question.data}}
+                                </div>
+                            </div>
+{% endfor %}
+                        </div>
+                        <!--end card -->
+
+                    </div>
+                    <!--end accordion -->
+
+                </div>
+                <!--end col-sm-6-->
+            
+            </div>
+            <!--end row-->
+    
+        </div>
+        <!--end container-->
+    
+    </section>
+    <!--end faq section -->
+
+  	<!--begin team section -->
+  	<section class="section-grey section-top-border" id="team">
+
+	    <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+          
+				<!--begin col-md-12 -->
+				<div class="col-md-12 text-center">
+             {% for menu in menus %}
+                  {% if menu.title == 'Team' %}
+					<h2 class="section-title">{{menu.heading}}</h2>
+
+					<p class="section-subtitle">{{menu.subheading}}</p>
+					{% endif %}
+					 {% endfor %}
+				</div>
+				<!--end col-md-12 -->
+                {% for team in teams %}
+                <!--begin team-item -->
+                <div class="col-sm-12 col-md-4">
+
+	                <div class="team-item">
+	                
+	                    <img src="{{team.img.url}}" class="team-img" alt="pic">
+	                   
+	                    <h3>{{team.name}}</h3>
+	                    
+	                    <div class="team-info"><p>{{team.profile}}</p></div>
+
+	                    <p>{{team.data}}</p>
+	                
+	                    <ul class="team-icon">
+	                    {% for icon in icons %}
+	                        <li><a href="{{icon.link}}" class="{{icon.name}}"><i class="{{icon.clas}}"></i></a></li>
+	                        
+	                        {% endfor %}
+	                    </ul>
+	                    
+                	</div>
+
+                </div>
+                <!--end team-item -->
+                 {% endfor %}
+                
+                
+            </div>
+            <!--end row-->
+        
+        </div>
+        <!--end container-->
+
+  	</section>
+  	<!--end team section-->
+
+	<!--begin showcase section-->
+  	<section class="section-blue" id="showcase">
+
+		<!--begin container-->
+		<div class="container-fluid">
+
+			<!--begin row-->
+			<div class="row">
+				
+				<!--begin col md 12-->
+				<div class="col-md-12 text-center">
+                 {% for menu in menus %}
+                  {% if menu.title == 'Showcase' %}
+					<h2 class="section-title white-text">{{menu.heading}}</h2>
+
+					<p class="section-subtitle white">{{menu.subheading}}</p>
+					{% endif %}
+					{% endfor %}
+					
+				</div>
+				<!--end col md 12-->
+
+				<!--begin col md 12-->
+				<div class="col-md-12 padding-top-20">
+
+                    <!--begin carousel-->
+                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                        
+                        <!--begin carousel-indicators-->
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <!--end carousel-indicators-->
+
+                        <!--begin carousel-inner-->
+                        <div class="carousel-inner">
+
+                            <!--begin carousel-item-->
+                            <div class="carousel-item active">
+                                
+                                <div class="row">
+{% for project in projects %}
+
+                                    <div class="col-sm-3">
+                                        <img src="{{project.img.url}}" alt="showcase" class="gallery-show">
+                                    </div>
+{% endfor %}
+                                </div>
+
+                            </div>
+                            <!--end carousel-item-->
+                           <div class="carousel-item">
+                                
+                                <div class="row">
+{% for product_image in images %}
+                                    <div class="col-sm-3">
+                                        <img src="{{product_image.img.url}}" alt="showcase" class="gallery-show">
+                                    </div>
+{% endfor %}
+                                    
+
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                        <!--end carousel-inner-->
+
+                        <!--begin carousel-control-prev-->
+                        <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <!--end carousel-control-prev-->
+
+                        <!--begin carousel-control-next-->
+                        <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                        <!--end carousel-control-next-->
+
+                    </div>
+                    <!--end carousel-->
+
+				</div>
+				<!--end col md 12-->
+
+			</div>
+			<!--end row -->
+
+		</div>
+		<!--end container -->
+
+	</section>
+	<!--end gallery section -->
+
+  	<!--begin services section -->
+    <section class="section-white section-bottom-border" id="features">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col-md-12-->
+                <div class="col-md-12 text-center padding-bottom-10">
+               {% for menu in menus %}
+                  {% if menu.title == 'Features' %}
+                    <h2 class="section-title">{{menu.heading}}</h2>
+
+                    <p class="section-subtitle">{{menu.subheading}}</p>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <!--end col-md-12 -->
+
+            </div>
+            <!--end row -->
+
+            <!--begin row -->
+            <div class="row">
+{% for amazing_feature in amazing_features %}
+                <!--begin col-md-4-->
+                <div class="col-md-4">
+
+                    <div class="feature-box wow fadeIn" data-wow-delay="0.25s" style="visibility: visible; animation-delay: 0.25s; animation-name: fadeIn;">
+
+                        <i class="{{amazing_feature.name}}"></i>
+
+                        <h4>{{amazing_feature.heading}}</h4>
+
+                        <p>{{amazing_feature.data}}</p>
+
+                    </div>
+                </div>
+                <!--end col-md-4 -->
+{% endfor %}
+               
+                
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end services section -->
+
+    <!--begin testimonials section -->
+    <section class="section-grey medium-paddings section-bottom-border">
+
+        <!--begin container -->
+        <div class="container">
+
+            <!--begin row -->
+            <div class="row">
+
+                <!--begin col md 12 -->
+                <div class="col-md-8 mx-auto padding-bottom-40">
+
+                    <!--begin testimonials carousel -->
+                    <div id="carouselIndicators2" class="carousel slide" data-ride="carousel">
+                        
+                        <!--begin carousel-indicators -->
+                        <ol class="carousel-indicators testimonials-indicators">
+                            <li data-target="#carouselIndicators2" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselIndicators2" data-slide-to="1"></li>
+                            <li data-target="#carouselIndicators2" data-slide-to="2"></li>
+                        </ol>
+                        <!--end carousel-indicators -->
+                        <!--begin carousel-inner -->
+                        <div class="carousel-inner">
+{% for testimonial in testimonials %}
+
+                            <!--begin carousel-item -->
+                            <div class="carousel-item">
+                                    
+                                <!--begin testim-inner -->
+                                <div class="testim-inner">
+
+                                    <img src="{{testimonial.img.url}}" alt="testimonials" class="testim-img">
+                                    
+                                    <p>{{testimonial.data}}</p>
+
+                                    <h6>{{testimonial.name}}<span class="job-text"> - {{testimonial.profile}}</span></h6>
+
+                                </div>
+                                <!--end testim-inner -->
+
+                            </div>
+                            <!--end carousel-item -->
+                            
+{% endfor %}
+                          
+                        </div>
+                        <!--end carousel-inner -->
+
+                    </div>
+                    <!--end testimonials carousel -->
+
+                </div>
+                <!--end col md 12-->
+
+            </div>
+            <!--end row -->
+
+        </div>
+        <!--end container -->
+
+    </section>
+    <!--end testimonials section -->
+
+	<!--begin section-white -->
+    <section class="section-white section-bottom-border">
+        
+        <!--begin container-->
+        <div class="container">
+
+            <!--begin row-->
+            <div class="row">
+            {% for benefit in benefits %}
+                <!--begin col-md-6-->
+                <div class="col-md-6 padding-top-20">
+
+                	<h3>{{benefit.heading}}</h3>
+
+                	<p>{{benefit.data}}</p>
+                    
+                	<ul class="benefits">
+						<li><i class="fa fa-check"></i>{{benefit.text}}</li>
+						
+					</ul>
+
+					<a href="{{header.link}}" class="btn-blue scrool">{{header.text}}</a>
+                    
+                </div>
+                <!--end col-md-6-->
+            
+                <!--begin col-md-6-->
+                <div class="col-md-6">
+
+                    <img src="{{benefit.img.url}}" class="hero-image width-100 box-shadow" alt="pic">
+
+                </div>
+                <!--end col-sm-6-->
+                {% endfor %}
+            </div>
+            <!--end row-->
+    
+        </div>
+        <!--end container-->
+    
+    </section>
+    <!--end section-white-->
+{% left_data in leftdata %}
+  	<!--begin contact -->
+    <section class="section-white section-top-border" id="contact">
+        
+        <!--begin container-->
+        <div class="container">
+    
+            <!--begin row-->
+            <div class="row">
+        
+                <!--begin col-md-6 -->
+				<div class="col-md-6">
+
+					<h4>{{left_data.heading}}</h4>
+
+	                <!--begin success message -->
+	                <p class="contact_success_box" style="display:none;">We received your message and you'll hear from us soon. Thank You!</p>
+	                <!--end success message -->
+	                {% load crispy_forms_tags %}
+	                <!--begin contact form -->
+	                <form class="contact" method="POST">
+                    {% csrf_token %}
+                    
+                        <!--<input class="contact-input white-input" required="" placeholder="Full Name*" type="text">-->{{form.full_name}}
+
+                        <!--<input class="contact-input white-input" required="" placeholder="Email Adress*" type="email">-->{{form.email_address}}
+
+                      <!--  <input class="contact-input white-input" required=""  placeholder="Phone Number*" type="text">-->{{form.phone_number}}
+
+                       <!-- <textarea class="contact-commnent white-input" rows="2" cols="20" placeholder="Your Message..."></textarea>-->{{form.message}}
+
+                    	<input value="Send Message" id="submit-button" class="contact-submit" type="submit">
+
+	                </form>
+	                <!--end contact form -->
+	            	
+				</div>
+				<!--end col-md-6 -->
+
+                <!--begin col-md-6 -->
+				<div class="col-md-6">
+
+					<h4>{{left_data.text}}</h4>
+
+                    <iframe class="contact-maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.9050207912896!2d-0.14675028449633118!3d51.514958479636384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ad554c335c1%3A0xda2164b934c67c1a!2sOxford+St%2C+London%2C+UK!5e0!3m2!1sen!2sro!4v1485889312335" width="600" height="270" style="border:0" allowfullscreen></iframe>
+
+					<h5>{{left_data.office}}</h5>
+{% for contact in contacts %}
+                    <p class="contact-info"><i class="{{contact.icon}}"></i>{{contact.text}}</p>
+                    {% endfor %}
+                    
+				</div>
+				<!--end col-md-6 -->
+
+            </div>
+            <!--end row-->
+            
+      </div>
+      <!--end container-->
+            
+    </section>
+    <!--end contact-->
+    
+    <!--begin footer -->
+    <div class="footer">
+            
+        <!--begin container -->
+        <div class="container">
+        
+            <!--begin row -->
+            <div class="row">
+            
+                <!--begin col-md-12 -->
+                <div class="col-md-12 text-center">
+                   
+                    <p>{{left_data.copyrigh}}<a href="https://themeforest.net/user/epic-themes/portfolio?ref=Epic-Themes" target="_blank"></a></p>
+                                         
+                    <!--begin footer_social -->
+                    <ul class="footer_social">
+{% footer_icon in footer_icons %}
+                        <li>
+                            <a href="#">
+                                <i class="{{footer_icons.name}}"></i>
+                            </a>
+                        </li>
+{% endfor %}
+
+                    </ul>
+                    <!--end footer_social -->
+                    
+                </div>
+                <!--end col-md-6 -->
+                
+            </div>
+            <!--end row -->
+            
+        </div>
+        <!--end container -->
+                
+    </div>
+    <!--end footer -->
+{% enddata %}
+<!-- Load JS here for greater good =============================-->
+<script src="{% static 'web/js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.scrollTo-min.js' %}"></script>
+<script src="{% static 'web/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'web/js/jquery.nav.js' %}"></script>
+<script src="{% static 'web/js/wow.js' %}"></script>
+<script src="{% static 'web/js/plugins.js' %}"></script>
+<script src="{% static 'web/js/custom.js' %}"></script>
+<script>
+    $('#carouselIndicators2').find('.carousel-item').first().addClass('active');
+</script>
+
+{% endfor %}
+</body>
+</html>
